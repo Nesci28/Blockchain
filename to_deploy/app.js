@@ -1,14 +1,22 @@
 const express = require('express');
 const cors = require('cors');
+const morgan = require('morgan');
 const db = require('monk')(
-  `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@ds233288.mlab.com:33288/blockchain-presentation`,
+  `mongodb://${process.env.db_username}:${process.env.db_password}@ds233288.mlab.com:33288/blockchain-presentation`,
 );
 blockchainDB = db.get('blockchain');
 
 const app = express();
 app.use(cors());
+app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.get('/test', (_, res) => {
+  res.json({
+    note: 'test',
+  });
+});
 
 app.get('/api/blockchain', async (_, res) => {
   let blk = await blockchainDB.find({
@@ -112,9 +120,7 @@ app.get('/api/address/:address', async (req, res) => {
 });
 
 app.use(express.static(__dirname + '/dist'));
-if (process.env.NODE_ENV === 'production') {
-  app.get(/.*/, (_, res) => res.sendFile(__dirname + '/dist/index.html'));
-}
+app.get(/.*/, (_, res) => res.sendFile(__dirname + '/dist/index.html'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
