@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "blockchain-explorer",
+  "builds": [
+    {
+      "src": "app.js",
+      "use": "@now/node-server"
+    }
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "/app.js" }],
+  "alias": ["blockchain-lab-explorer"]
+}

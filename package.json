@@ -1,0 +1,27 @@
+{
+  "name": "js_blockchain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "blockchain.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "monk": "^7.1.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "sha256": "^0.2.0",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "node1": "nodemon server.js 3001 http://localhost:3001",
+    "node2": "nodemon server.js 3002 http://localhost:3002",
+    "node3": "nodemon server.js 3003 http://localhost:3003"
+  },
+  "author": "",
+  "license": "ISC"
+}
