@@ -1,4 +1,4 @@
 node_modules/
-server.js
-blockchain.js
 package-lock.json
+now.json
+.vscode/

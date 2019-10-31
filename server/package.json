@@ -1,0 +1,22 @@
+{
+  "name": "js_blockchain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "monk": "^7.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "now": "now && now alias blockchain-lab-explorer-server && now rm blockchain-explorer --safe --yes"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}
